@@ -1,0 +1,302 @@
+/*==============================================
+    ESTILOS GLOBALES Y CONFIGURACIÓN BASE
+==============================================*/
+
+body {
+    /* Fuente principal para el contenido */
+    font-family: 'Roboto', sans-serif; 
+    color: #333; /* Color de texto oscuro para alta legibilidad */
+    line-height: 1.6;
+    /* padding-top para evitar que el contenido quede bajo la navbar fija */
+    padding-top: 56px; 
+    background-color: #cfcbcd; /* Color de Fondo*/
+    scroll-behavior: smooth; /* Desplazamiento suave al hacer clic en anclas */
+}
+
+/* Colores de marca definidos para referencia */
+:root {
+    --color-primary: #D3B099; /* Rosa Claro / Elegante */
+    --color-secondary: #A08C69; /* Dorado Suave / Énfasis */
+    --color-dark: #343a40;
+}
+
+/* Estilo para todos los títulos principales de las secciones */
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: #333;
+}
+
+
+/*==============================================
+    NAVEGACIÓN (NAVBAR)
+==============================================*/
+.navbar-brand {
+    font-family: 'Playfair Display', serif; 
+    font-weight: 700;
+    color: var(--color-secondary) !important; /* Dorado para el logo */
+}
+
+.navbar-nav .nav-link {
+    color: #555 !important;
+    font-weight: 500;
+    margin-left: 15px;
+    transition: color 0.3s ease;
+}
+
+/* Estilo para el enlace activo o al pasar el ratón */
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--color-primary) !important; /* Rosa claro para destacar */
+    border-bottom: 2px solid var(--color-primary); /* Subrayado sutil */
+    padding-bottom: 3px;
+}
+
+/*==============================================
+    SECCIÓN HERO (INDEX.HTML)
+==============================================*/
+.hero-section {
+    /* 1. RUTA DE LA IMAGEN:  */
+    background: url('../img/hero-fondo.jpg') no-repeat center center/cover; 
+    
+    /* 2. TAMAÑO: Define la altura mínima para que la imagen se vea */
+    min-height: 90vh; 
+    
+    /* 3. POSICIONAMIENTO: Necesario para el overlay */
+    position: relative;
+    z-index: 1;
+
+    /* Estilos de Texto: para que el texto sea legible sobre el fondo oscuro */
+    color: #fff; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+}
+
+/* 4. OVERLAY OSCURO: Esta capa semitransparente es CRUCIAL para que el texto 
+   del eslogan "Belleza que enamora..." sea legible sin importar los colores de la imagen */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.45); /* Capa oscura (45% de opacidad negra) */
+    z-index: -1; /* Envía la capa detrás del texto (z-index: 1) */
+}
+
+/*==============================================
+    BOTONES Y COMPONENTES REUTILIZABLES
+==============================================*/
+.btn-primary {
+    background-color: var(--color-primary); /* Fondo Rosa Claro */
+    border-color: var(--color-primary);
+    font-weight: bold;
+    padding: 10px 30px;
+    border-radius: 30px; /* Botones con esquinas redondeadas */
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-secondary); /* Cambio a Dorado al pasar el ratón */
+    border-color: var(--color-secondary);
+    transform: translateY(-2px); /* Pequeño levantamiento */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-outline-primary {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+    font-weight: bold;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--color-primary);
+    color: #fff;
+}
+
+
+/*==============================================
+    TARJETAS DE PRODUCTO (PRODUCTOS.HTML)
+==============================================*/
+.card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto de levantamiento moderno al pasar el ratón sobre la tarjeta */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-img-top {
+    height: 250px; /* Altura fija para las imágenes de producto */
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsión */
+}
+
+.product-card .h4.text-primary {
+    color: var(--color-secondary) !important; /* Precio en color Dorado */
+}
+
+
+/*==============================================
+    SECCIÓN NOSOTROS (NOSOTROS.HTML)
+==============================================*/
+
+.nosotros-card {
+    /* Fondo pastel similar a tus productos */
+    background-color: #f7ede2; 
+    
+    /* Espaciado interno */
+    padding: 50px; 
+    
+    /* Esquinas redondeadas, igual que la imagen de al lado */
+    border-radius: 0.5rem; /* Usamos el estándar de Bootstrap (8px) */
+    
+    /* Sombra para imitar el efecto de shadow-lg que tiene la imagen */
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
+    
+    /* Aseguramos que la tarjeta se extienda para igualar la altura de la imagen */
+    height: 400%; 
+    
+    /* Ajustes de texto para mejor lectura */
+    line-height: 3.0;
+    text-align: justify;
+    color: #2e2e2e; 
+}
+/* Estilo similar al hero para la sección de Misión y Valores */
+.bg-dark-overlay {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+}
+
+/* Aplica el overlay oscuro al contenido de Nosotros */
+.bg-dark-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.55); /* Ligeramente más oscuro que el hero */
+    z-index: -1;
+    border-radius: 10px; /* Bordes suaves */
+}
+
+.fa-leaf, .fa-heart, .fa-lightbulb {
+    color: var(--color-secondary); /* Iconos de valor en color Dorado */
+}
+
+
+/*==============================================
+    FORMULARIO DE CONTACTO (CONTACTO.HTML)
+==============================================*/
+.form-control:focus {
+    border-color: var(--color-primary); /* Borde de enfoque en Rosa Claro */
+    box-shadow: 0 0 0 0.25rem rgba(211, 176, 153, 0.5); /* Sombra de enfoque semitransparente */
+}
+
+.contact-info .fa-fw {
+    font-size: 1.1rem;
+}
+
+/* ========================================================= */
+/* ==== ESTILO PARA TARJETA DE CONTACTO (COHERENCIA VISUAL) ==== */
+/* ========================================================= */
+
+.contacto-card {
+    /* Mismo color de fondo que la tarjeta de Nosotros */
+    background-color: #f7ede2; 
+    
+    /* Mismos efectos visuales que la tarjeta de Nosotros */
+    padding: 30px; 
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
+    
+    /* Opcional: Asegura un buen tamaño */
+    margin-top: 30px; 
+    margin-bottom: 30px;
+}
+
+/*==============================================
+    BOTÓN FLOTANTE DE WHATSAPP (Fijo)
+==============================================*/
+.whatsapp-button {
+    position: fixed;
+    bottom: 25px; /* Distancia desde la parte inferior */
+    right: 25px; /* Distancia desde la derecha */
+    width: 60px; 
+    height: 60px;
+    background-color: #25d366; /* Color de WhatsApp */
+    border-radius: 50%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+    z-index: 1000; 
+    transition: transform 0.3s ease, opacity 0.5s ease; /* Transiciones para el JS */
+    /* El JS manejará la visibilidad y opacidad */
+}
+
+.whatsapp-button:hover {
+    transform: scale(1.15) rotate(5deg); /* Efecto de escala y rotación divertido */
+}
+
+.whatsapp-button img {
+    width: 35px;
+    height: 35px;
+}
+
+
+/*==============================================
+    FOOTER
+==============================================*/
+footer {
+    background-color: var(--color-dark); /* Color oscuro para el pie de página */
+}
+
+.social-icons a {
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--color-primary) !important; /* Rosa claro para los iconos al pasar el mouse */
+}
+
+
+/*==============================================
+    MEDIA QUERIES (RESPONSIVE DESIGN)
+==============================================*/
+@media (max-width: 992px) {
+    .hero-section {
+        min-height: 50vh;
+    }
+    
+    .hero-section h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Ajuste para pantallas pequeñas */
+    body {
+        padding-top: 50px;
+    }
+    
+    .whatsapp-button {
+        bottom: 15px;
+        right: 15px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .whatsapp-button img {
+        width: 30px;
+        height: 30px;
+    }
+}
